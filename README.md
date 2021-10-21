@@ -1,5 +1,6 @@
 Dans mon exemple je collecte les données du mois de décembre à partir du site Web de Bay Wheels https://s3.amazonaws.com/baywheels-data/index.html. Puis je crée ma table dans le nootebook, Et je récupère le DataFrame en utilisant SPARK SQL. 
 En passant à l’exploration des données j’ai utilisé la méthode « to_pandas() » de PySpark pour pouvoir utilisé pandas  pour faciliter la manipulation et l'analyse des données. Ensuite j’ai pu visualiser les informations sur les données qui sont la taille du DataFrame, le type des colonnes, et si la colonne peut être null ou non. Puis j’ai visualisé les statistiques sur l’ensemble des variables. Et j’ai vérifier si les colonnes contiennent des valeurs null et j’ai calculé le pourcentage de ces valeurs pour chaque colonne. A la fin de cette visualisation j’ai détecté type de Problèmes :
+
 •	Problème de Qualité des données :
 -	Types de données erronés « start_time », « end_time » et « user_type ».
 -	Valeurs nulles dans les colonnes « start_station_id », « start_station_name », « end_station_id », « end_station_name » et « rental_access_method ».
@@ -10,6 +11,7 @@ En passant à l’exploration des données j’ai utilisé la méthode « to_pan
 -	 Colonnes qui ne seront pas utilisées.
 
 Pour régler ces problèmes j’ai procédé au nettoyage des données en effectuant les étapes suivantes :
+
 •	Suppression des colonnes qui ne seront pas utilisées : "start_station_id", "end_station_id", "start_station_latitude", "start_station_longitude", "end_station_latitude", "end_station_longitude" and "bike_id" .
 •	Suppression de la colonne "rental_access_method" car elle contient 81% des null.
 •	Suppression des enregistrements qui contiennent des valeurs null pour les colonnes : 'start_station_name' et 'end_station_name'.
